@@ -1,0 +1,82 @@
+<div class="col-md-12">  
+  <div class="newlistcontainer">
+    <div class="links">
+      <%= link_to "New Todo List", new_todo_list_path, class: "todo_list_title", style: "font-size: 1.75em;" %>
+    </div>
+    <p class="notice" id="notice"><%= notice %></p>
+    <p class="alert" id="notice"><%= alert %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="indexcontainer">
+      <h1 class="todo_list_title" style="font-size:2.em;">Important - Due Soon</h1>
+      <hr>
+      <% @todo_lists.each do |todo_list| %>
+        <% if user_signed_in? && todo_list.user_id === current_user.id %>
+          <% if todo_list.category_id === 1 %>
+            <div class="index-row clearfix">
+              <h2 class="todo_list_title"><%= link_to todo_list.title, todo_list %></h2>
+              <p class="todo_list_sub_title"><%= todo_list.description %></p>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="indexcontainer">
+      <h1 class="todo_list_title" style="font-size:2.em;">Not Important - Due Soon</h1>
+      <hr>
+      <% @todo_lists.each do |todo_list| %>
+        <% if user_signed_in? && todo_list.user_id === current_user.id %>
+          <% if todo_list.category_id === 2 %>
+            <div class="index-row clearfix">
+              <h2 class="todo_list_title"><%= link_to todo_list.title, todo_list %></h2>
+              <p class="todo_list_sub_title"><%= todo_list.description %></p>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="indexcontainer">
+      <h1 class="todo_list_title" style="font-size:2.em;">Important - Due Later</h1>
+      <hr>
+      <% @todo_lists.each do |todo_list| %>
+        <% if user_signed_in? && todo_list.user_id === current_user.id %>
+          <% if todo_list.category_id === 3 %>
+            <div class="index-row clearfix">
+              <h2 class="todo_list_title"><%= link_to todo_list.title, todo_list %></h2>
+              <p class="todo_list_sub_title"><%= todo_list.description %></p>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="indexcontainer">
+      <h1 class="todo_list_title" style="font-size:2.em;">Not Important - Due Later</h1>
+      <hr>
+      <% @todo_lists.each do |todo_list| %>
+        <% if user_signed_in? && todo_list.user_id === current_user.id %>
+          <% if todo_list.category_id === 4 %>
+            <div class="index-row clearfix">
+              <h2 class="todo_list_title"><%= link_to todo_list.title, todo_list %></h2>
+              <p class="todo_list_sub_title"><%= todo_list.description %></p>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>

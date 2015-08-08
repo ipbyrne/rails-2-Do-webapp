@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="todo_list_title">UpdateTodo List</h1>
+
+  <div class="forms">
+    <%= render 'form' %>
+  </div>
+
+  <div class="links">
+    <%= link_to  @todo_list do %>
+      <i class="fa fa-arrow-left fa-2x"></i>
+    <% end %>
+
+    <%= link_to  todo_lists_path  do %> 
+      <i class="fa fa-home" style="margin-left: 10px; font-size: 25px;"></i>
+    <% end %>
+  </div>
+</div>
+<br>

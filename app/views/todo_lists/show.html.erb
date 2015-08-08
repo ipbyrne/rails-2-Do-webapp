@@ -1,0 +1,30 @@
+
+<div class="container">
+  <p class="notice" id="notice"><%= notice %></p>
+  <p class="alert" id="notice"><%= alert %></p>
+  <h2 class="todo_list_title"><%= @todo_list.title%></h2>
+  <p class="todo_list_sub_title"><%= @todo_list.category.name%></p>
+  <p class="todo_list_sub_title"><%= @todo_list.description %></p>
+
+  <div id="todo_items_wrapper">
+    <%= render @todo_list.todo_items %>
+    <div id="form">
+      <%= render "todo_items/form" %>
+      <br>
+    </div>
+  </div>
+
+  <div class="todoshowbuttons" style="text-align:center;">
+     <%= link_to  todo_lists_path do %>
+      <i class="fa fa-arrow-left" style="font-size:24px;"></i>
+    <% end %>
+
+    <%= link_to edit_todo_list_path(@todo_list) do %>
+      <i class="fa fa-pencil-square-o" style="margin-left: 10px; font-size:24px;"></i>
+    <% end %>
+
+    <%= link_to  todo_list_path(@todo_list), method: :delete, data: { confirm: "Are you sure?" } do %>
+      <i class="fa fa-trash" style="margin-left: 10px; font-size:24px;"></i>
+    <% end %>
+  </div>
+</div>
